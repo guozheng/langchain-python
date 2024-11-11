@@ -11,6 +11,7 @@ llm = ChatGoogleGenerativeAI(
     model="gemini-1.5-pro-latest", google_api_key=GOOGLE_GEMINI_KEY
 )
 
+# See more details here: https://smith.langchain.com/hub/hwchase17/react
 prompt = hub.pull("hwchase17/react")
 
 tools = load_tools(["wikipedia", "ddg-search", "llm-math"], llm)

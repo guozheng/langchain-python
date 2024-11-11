@@ -19,12 +19,15 @@ llm = ChatOllama(model="gemma:2b")
 
 st.title("Currency Info")
 
-country = st.text_input("Input Country")
-paragraph = st.number_input("Input Number of Paragraphs", min_value=1, max_value=5)
-language = st.text_input("Input Language")
+country = st.text_input("Country")
+paragraph = st.number_input("Number of Output Paragraphs", min_value=1, max_value=5)
+language = st.text_input("Output Language")
 
-if country and paragraph and language:
-    response = llm.invoke(
+if st.button("Submit"):
+    if country and paragraph and language:
+        response = llm.invoke(
         prompt.format(country=country, paragraph=paragraph, language=language)
-    )
-    st.write(response.content)
+        )
+        st.write(response.content)
+    else:
+        st.write("Please fill in all fields")

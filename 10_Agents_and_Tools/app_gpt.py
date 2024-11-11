@@ -5,6 +5,7 @@ from langchain.agents import create_react_agent, AgentExecutor
 from langchain_community.agent_toolkits.load_tools import load_tools
 from langchain_openai import ChatOpenAI
 
+
 OPENAI_KEY = config("OPENAI_KEY")
 
 llm = ChatOpenAI(model="gpt-4o", api_key=OPENAI_KEY)
